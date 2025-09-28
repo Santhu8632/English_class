@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="py-5 mt-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h1 class="section-title">Our Programs</h1>
+            <p class="section-subtitle">Comprehensive English training programs designed for success</p>
+        </div>
+        
+        <div class="row g-4">
+            {% for program in programs %}
+            <div class="col-lg-6">
+                <div class="program-detail-card">
+                    <div class="program-header">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>{{ program.name }}</h3>
+                    </div>
+                    <div class="program-body">
+                        <p>{{ program.description }}</p>
+                        <ul>
+                            <li>Personalized attention</li>
+                            <li>Practical exercises</li>
+                            <li>Progress tracking</li>
+                            <li>Certificate of completion</li>
+                        </ul>
+                    </div>
+                    <div class="program-footer">
+                        <a href="{{ url_for('contact') }}?program={{ program.id }}" class="btn btn-primary">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Program Comparison -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Program Comparison</h2>
+            <p class="section-subtitle">Find the perfect program for your needs</p>
+        </div>
+        
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Program</th>
+                        <th>Duration</th>
+                        <th>Level</th>
+                        <th>Focus Areas</th>
+                        <th>Ideal For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>College/University Spoken English</td>
+                        <td>3 months</td>
+                        <td>Beginner to Advanced</td>
+                        <td>Academic communication, Presentations</td>
+                        <td>Students</td>
+                    </tr>
+                    <tr>
+                        <td>Interview Softskills</td>
+                        <td>6 weeks</td>
+                        <td>Intermediate to Advanced</td>
+                        <td>Interview techniques, Confidence building</td>
+                        <td>Job seekers</td>
+                    </tr>
+                    <tr>
+                        <td>Corporate Training</td>
+                        <td>Customizable</td>
+                        <td>All levels</td>
+                        <td>Business communication, Meetings</td>
+                        <td>Professionals</td>
+                    </tr>
+                    <tr>
+                        <td>American Accent</td>
+                        <td>2 months</td>
+                        <td>Intermediate to Advanced</td>
+                        <td>Pronunciation, Intonation</td>
+                        <td>All learners</td>
+                    </tr>
+                    <tr>
+                        <td>Personality Development</td>
+                        <td>3 months</td>
+                        <td>All levels</td>
+                        <td>Confidence, Body language</td>
+                        <td>All learners</td>
+                    </tr>
+                    <tr>
+                        <td>Presentation Skills</td>
+                        <td>4 weeks</td>
+                        <td>Intermediate to Advanced</td>
+                        <td>Public speaking, Slide design</td>
+                        <td>Students & Professionals</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5">
+    <div class="container text-center">
+        <h2 class="mb-4">Not Sure Which Program is Right for You?</h2>
+        <p class="lead mb-4">Contact us for a free consultation and we'll help you choose the perfect program.</p>
+        <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg">Get Free Consultation</a>
+    </div>
+</section>
+{% endblock %}
